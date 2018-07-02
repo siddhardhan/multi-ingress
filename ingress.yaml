@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-dotcom
+  annotations:
+    nginx.ingress.kubernetes.io/ingress-class: "nginx-dotcom"
+spec:
+  rules:
+  - host: ingress.dotcom.ek8s.kubemicro.com
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: frontend
+          servicePort: 80
+
+---
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-dotnet
+  annotations:
+    nginx.ingress.kubernetes.io/ingress-class: "nginx-dotnet"
+spec:
+  rules:
+  - host: ingress.dotnet.ek8s.kubemicro.com
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: frontend
+          servicePort: 80
